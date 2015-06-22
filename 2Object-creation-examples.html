@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // multi-level inheritance
+
+        function Animal() {
+
+        }
+        Animal.prototype.eat = function () {
+            console.log('eating now ...');
+        };
+
+        function Dog() {
+
+        }
+        Dog.prototype = new Animal();
+        Dog.prototype.constructor = Dog;
+        Dog.prototype.bark = function () {
+            console.log('woof!');
+        };
+
+        var poodle = new Dog(); // Animal.prototype
+        poodle.bark();
+        console.log(poodle.constructor);
+        poodle.eat();
+
+        // Object.create() // ES5., ES3 does not have Object.create
+
+
+        function objectCreate(parent) {
+
+            function F() {}
+            F.prototype = parent;
+            return new F();
+
+            // return an object that treats x as the parent ...
+        }
+
+        var y = objectCreate(x);
+        console.log(y.type); // 'of type x'
+        x.type = 'changed to something else';
+        console.log(y.type); // 'changed to something else
+
+        console.log(y.constructor);
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
