@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // 'use strict';
+
+        var y = Object.create({});
+        y.type = 'child';
+        y.certificate = 'asdfasdf';
+        y.name = 'name is y ... ';
+
+        console.log(Object.getOwnPropertyDescriptor(y, 'certificate'));
+
+        Object.defineProperty(y, 'certificate', {
+            enumerable: false,
+            writable: false,
+            configurable: false
+        });
+
+        console.log(Object.keys(y)); //  ["type", "name"]
+        console.log(Object.getOwnPropertyNames(y)); //   ["type", "certificate", "name"]
+
+        var p = Object.create(y);
+        for (var prop in p) {
+            console.log('property of p is ', prop);
+        }
+
+        for (var prop in y) {
+            console.log(prop, ' : ', y[prop]);
+        }
+
+        y.certificate = '1234';
+        console.log(y.certificate);
+
+        /*Object.defineProperty(y, 'certificate', {
+            enumerable: false,
+            writable: true
+        });*/ // --- this should generate a typeError
+
+        y.certificate = '1234';
+        console.log(y.certificate);
+
+        var z = {};
+        Object.defineProperty(z,'name', {
+            get: function () {
+                return 'Songyan Wu';
+            }
+        });
+
+        console.log(z.name);
+        z.name = 'Lei';
+
+        console.log(z.name);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

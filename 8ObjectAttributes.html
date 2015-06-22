@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function print(str) {
+            console.log(str, ': ', eval(str)); // eval is evil - do not use in production
+        }
+
+        // Three major attributes of an object
+
+        // 1. prototype --> reference to the parent of the current object
+        // 2. extensible --> add dynamic properties to the object on the fly
+        // 3. class name --> Base class to create the object
+
+        function Animal() {}
+
+        var dog = new Animal();
+
+        console.log(Object.getPrototypeOf(dog) === Animal.prototype);
+        console.log(Animal.prototype.isPrototypeOf(dog));
+
+        // ================== extensible
+
+        Object.preventExtensions(dog);
+
+        print('Object.isExtensible(dog)');
+
+        dog.type = 'labrador';
+
+        console.log(dog.type);
+
+        // ================== class name
+
+        function sayHello() {
+            console.log('Hello from ', this.name); // this === charles
+        }
+
+        var charles = {
+            name: 'Charles'
+        };
+
+        sayHello.call(charles);
+
+        var obj = {};
+
+        console.log(Object.prototype.toString());
+        console.log(obj.toString());
+
+        var arr = []; // Array.prototype
+        console.log(Object.prototype.toString.call(arr)); // arr.toString()
+
+
+        // user defined objects - created by the user
+        // host objects - defined by the environment
+        // native objects - defined by JS - ES standards object
+
+        function getClassNameAttribute (obj) {
+            // returns the class name value
+        }
+
+        console.log(getClassNameAttribute(arr));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

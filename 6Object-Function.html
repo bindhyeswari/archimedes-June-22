@@ -5,6 +5,52 @@
     <title></title>
     <script>
 
+        var x = {
+            id: 22,
+            _info: 'asdf',
+            sayHello: function () {
+                console.log('Hello World!');
+            },
+            get info() { // getter property
+                console.log('asdf');
+                return 'asdf';
+            },
+            set info(val) {
+                console.log(this === x); // true
+
+            }
+        };
+
+        x.sayHello();
+        // x.info = 'asdfasdfasdfasdf';
+        var info = x.info;
+
+
+
+        // enumeration loop
+
+        console.log('==========================');
+        var y = Object.create(x);
+        y.type = 'child';
+        y.certificate = 'asdfasdf';
+        y.name = 'name is y ... ';
+
+        // old code - enumeration loop
+        for (var prop in y) {
+            if (y.hasOwnProperty(prop))
+                console.log(prop); // prints type first time
+        }
+
+        console.log(Object.keys(y)); // get all enumerable own properties as an array // ['type']
+
+        Object.keys(y).forEach(function (elem) {
+            console.log(elem,': ', y[elem]); // prints the third time
+        });
+
+
+
+
+
 
 
     </script>
