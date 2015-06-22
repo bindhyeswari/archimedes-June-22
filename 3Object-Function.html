@@ -20,6 +20,9 @@
 
         console.log(Object.getPrototypeOf(dog) === Animal.prototype);
 
+        var gr = Object.create(dog);
+        console.log(Object.getPrototypeOf(gr) === dog);
+
 
 
     </script>
