@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        console.log('Hello World!');
+
+        // create an object in javascript
+
+        // 1. Object literal
+        var o = {
+            name: 'Songyan Wu',
+            id: 'asdf98554',
+            sayHello: function () {
+                console.log('Hello World!');
+            }
+        };
+
+        console.log(o.name); // Dot operator to access properties
+        console.log(o['name']); // Associative array notation
+
+        var property_name = 'id';
+        console.log(o[property_name]); // dynamically pick up property names
+
+        o.sayHello(); // method
+
+        // 2. Constructors
+
+        function Animal(_specific) {
+            this.specific = _specific; // this here refers to the new object
+        }
+        Animal.prototype.type = 'animal type';
+
+        var dog = new Animal('dog');
+        var cat = new Animal('cat');
+
+        // 1. A new object is created
+        // 2. Attribute prototype point to Animal.prototype
+        // 3. Refers to the new object using  "this" keyword & invokes constructor
+
+        console.log(dog);
+        console.log(cat.type);
+
+        // 3. Object.create
+
+        var x = Object.create(o);
+        console.log(x);
+
+        o.name = 'Charles';
+        console.log(x.name);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
