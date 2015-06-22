@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        var re = /^[a-z]$/i;
+
+        var regex = new RegExp('^[a-z]$', 'gmi');
+
+        console.log(Object.getPrototypeOf(regex) === RegExp.prototype);
+
+        console.log(re.test('A'));
+
+        var str = 'asdfasdf12a1sd5f45a6sfasdf3135';
+        console.log(str.match(/[0-9]+/g));
+
+        // ========
+        console.log(typeof str);
+        console.log(str.substring(0,3)); // wrapping str --> Temporary Object --> toString --> Discards the object
+
+        var strx = new String('asdf');
+        console.log(typeof strx);
+
+        console.log('asdf'.substr(0,2));
+        console.log(true.toString());
+        console.log(5.toString()); // error because of the confusion between decimal and the . operator
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

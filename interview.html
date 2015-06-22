@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // === primitive values
+        function test(x) {
+            x = 'asdf';
+        }
+
+        var z = 'info';
+        test(z);
+        console.log(z);
+
+        // ==== object values
+        function test2(x) {
+            // x = #65454asdf
+            x.type = 'new';
+            // x = { type: 'new' }; // x = #reraertset
+        }
+
+        var p = { type: 'old' }; // #65454asdf
+        test2(p); // #65454asdf
+        console.log(p);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

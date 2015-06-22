@@ -58,6 +58,10 @@
         // native objects - defined by JS - ES standards object
 
         function getClassNameAttribute (obj) {
+            var str = Object.prototype.toString.call(obj);
+            return str.substring(7, str.length - 1);
+
+            // todo: fix this code for .substring or .substr using -ve indices
             // returns the class name value
         }
 
